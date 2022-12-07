@@ -3,43 +3,43 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BackendSocialProject.Models.Repository
 {
-    public class CategoryRepository : IPlantRepository
+    public class CategoryRepository
     {
         protected readonly DemoContext _context;
         public CategoryRepository(DemoContext context) => _context = context;
 
-        public IEnumerable<Plant> GetPlants()
+        public IEnumerable<Category> GetCategories()
         {
-            return _context.Plants.ToList();
+            return _context.Categories.ToList();
             //return _context.Plants.Include(p=>p.category).ToList();
         }
-        public Plant GetPlantById(int id)
+        public Category GetCategoryById(int id)
         {
-            return _context.Plants.Find(id);
+            return _context.Categories.Find(id);
         }
-        public async Task<Plant> CreatePlantAsync(Plant plant)
+        public async Task<Category> CreateCateoryAsync(Category category)
         {
-            await _context.Set<Plant>().AddAsync(plant);
+            await _context.Set<Category>().AddAsync(category);
             await _context.SaveChangesAsync();
-            return plant;
+            return category;
         }
-        public async Task<bool> UpdatePlantAsync(Plant plant)
+        public async Task<bool> UpdateCategoryAsync(Category category)
         {
-            _context.Entry(plant).State = EntityState.Modified;
+            _context.Entry(category).State = EntityState.Modified;
             await _context.SaveChangesAsync();
             return true;
         }
-        public async Task<bool> DeletePlantAsync(Plant plant)
+        public async Task<bool> DeletePlantAsync(Category category)
         {
             //var entity = await GetByIdAsync(id);
-            if (plant is null)
+            if (category is null)
             {
                 return false;
             }
-            _context.Set<Plant>().Remove(plant);
+            _context.Set<Category>().Remove(category);
             await _context.SaveChangesAsync();
 
             return true;
         }
-    }
+     }
 }

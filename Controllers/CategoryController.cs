@@ -1,8 +1,7 @@
 ﻿using BackendSocialProject.Models.Data;
+using BackendSocialProject.Models.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace BackendSocialProject.Controllers
 {
@@ -10,48 +9,68 @@ namespace BackendSocialProject.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly DemoContext _db;
-        public CategoryController(DemoContext db)
+        private ICategoryRepository _categoryRepository;
+
+        public CategoryController(ICategoryRepository categoryRepository)
         {
-            _db= db;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetCategories()
+        [ActionName(nameof(GetCategoriesAsync))]
+        public IEnumerable<Category> GetCategoriesAsync()
         {
-            var lista = await _db.Categories.OrderBy(c => c.Name).ToListAsync();
-
-            return Ok(lista);
+            return _categoryRepository.GetCategories();
         }
 
-        //Este id tiene que ser el mismo que el del metodo
-        [HttpGet("{id:int}")]
-        public async Task<IActionResult> GetCategory(int id)
+        [HttpGet("{id}")]
+        [ActionName(nameof(GetCategoryById))]
+        public ActionResult<Category> GetCategoryById(int id)
         {
-            var categoryByID = await _db.Categories.FirstOrDefaultAsync(c => c.Id == id);
-            if(categoryByID == null)
+            var categoryByID = _categoryRepository.GetCategoryById(id);
+            if (categoryByID == null)
             {
                 return NotFound();
             }
-            return Ok(categoryByID);
+            return categoryByID;
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateCategory([FromBody] Category category)
+        [ActionName(nameof(CreateCategoryAsync))]
+        public async Task<ActionResult<Category>> CreateCategoryAsync(Category category)
         {
-            if(category == null)
+            await _categoryRepository.CreateCategoryAsync(category);
+            return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id }, category);
+        }
+
+        [HttpPut("{id}")]
+        [ActionName(nameof(UpdateCategory))]
+        public async Task<ActionResult> UpdateCategory(int id, Category category)
+        {
+            if (id != category.Id)
             {
-                return BadRequest(ModelState);
-            }
-            if(!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);    
+                return BadRequest();
             }
 
-            await _db.Categories.AddAsync(category);
-            await _db.SaveChangesAsync();
+            await _categoryRepository.UpdateCategoryAsync(category);
 
-            return Ok();
+            return NoContent();
+
+        }
+
+        [HttpDelete("{id}")]
+        [ActionName(nameof(DeleteCategory))]
+        public async Task<IActionResult> DeleteCategory(int id)
+        {
+            var category = _categoryRepository.GetCategoryById(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+
+            await _categoryRepository.DeleteCategoryAsync(category);
+
+            return NoContent();
         }
     }
 }

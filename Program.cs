@@ -20,9 +20,10 @@ builder.Services.AddDbContext<DemoContext>(
     });
 
 //Para usar la interfaz
-builder.Services.AddTransient<IPlantRepository, PlantRepository>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<IPlantRepository, CategoryRepository>();
 
-//Para evitar cilos
+//Para evitar ciclos
 builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles
