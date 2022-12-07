@@ -11,6 +11,8 @@ namespace BackendSocialProject.Models.Data
         }
 
         //Aqui agregamos nuestra entidad modelo, tabla Product  
+        public DbSet<Category> Categories { get; set; }
+
         public DbSet<Plant> Plants { get; set; }
     }
 }

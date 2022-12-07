@@ -11,6 +11,7 @@ namespace BackendSocialProject.Models.Repository
         public IEnumerable<Plant> GetPlants()
         {
             return _context.Plants.ToList();
+            //return _context.Plants.Include(p=>p.category).ToList();
         }
         public Plant GetPlantById(int id)
         {

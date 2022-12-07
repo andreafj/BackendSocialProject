@@ -1,6 +1,7 @@
 using BackendSocialProject.Models.Data;
 using BackendSocialProject.Models.Repository;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,12 @@ builder.Services.AddDbContext<DemoContext>(
 
 //Para usar la interfaz
 builder.Services.AddTransient<IPlantRepository, PlantRepository>();
+
+//Para evitar cilos
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles
+);
 
 var app = builder.Build();
 
