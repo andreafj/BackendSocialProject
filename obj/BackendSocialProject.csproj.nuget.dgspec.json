@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\BackendSocialProject.csproj": {}
+    "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\BackendSocialProject.csproj": {}
   },
   "projects": {
-    "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\BackendSocialProject.csproj": {
+    "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\BackendSocialProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\BackendSocialProject.csproj",
+        "projectUniqueName": "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\BackendSocialProject.csproj",
         "projectName": "BackendSocialProject",
-        "projectPath": "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\BackendSocialProject.csproj",
+        "projectPath": "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\BackendSocialProject.csproj",
         "packagesPath": "C:\\Users\\Andrea\\.nuget\\packages\\",
-        "outputPath": "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\obj\\",
+        "outputPath": "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Andrea\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -16,6 +16,6 @@ namespace BackendSocialProject.Models.Data
         public string Description { get; set; }
         //Foreing key
         public int CategoryID { get; set; }
-        public Category category { get; set; }
+        public Category? category { get; set; }
     }
 }

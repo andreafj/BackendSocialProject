@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UsPz9mNczoIZCccm4cIydS1uej6J/PyRSeVmR57KQNK1x7ntzTX7V6MazVQai3bIjDtWIM02oCUYJx9qb2HiGw==",
+  "dgSpecHash": "VJQa0nQWUb7RWd2TJ699cfUwBevj3l0TkXfqjHTQo1EbD/q6eHVOiwjLMgVD8M9cxU9NuT35GtdXCTFlT0F+lw==",
   "success": true,
-  "projectFilePath": "D:\\NiceCXOne\\My Proyecto Social\\BackendSocialProject\\BackendSocialProject.csproj",
+  "projectFilePath": "D:\\NiceCXOne\\My Proyecto Social-Backend\\BackendSocialProject\\BackendSocialProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andrea\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Andrea\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

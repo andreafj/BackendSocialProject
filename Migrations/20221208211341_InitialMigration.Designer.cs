@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendSocialProject.Migrations
 {
     [DbContext(typeof(DemoContext))]
-    [Migration("20221207132640_InitialMigration")]
+    [Migration("20221208211341_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -84,12 +84,17 @@ namespace BackendSocialProject.Migrations
             modelBuilder.Entity("BackendSocialProject.Models.Data.Plant", b =>
                 {
                     b.HasOne("BackendSocialProject.Models.Data.Category", "category")
-                        .WithMany()
+                        .WithMany("Plants")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("category");
+                });
+
+            modelBuilder.Entity("BackendSocialProject.Models.Data.Category", b =>
+                {
+                    b.Navigation("Plants");
                 });
 #pragma warning restore 612, 618
         }

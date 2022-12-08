@@ -10,5 +10,6 @@ namespace BackendSocialProject.Models.Data
         public string Name { get; set; }
         [Required]
         public bool State { get; set; }
+        public IEnumerable<Plant>? Plants { get; set;}
     }
 }

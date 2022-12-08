@@ -82,12 +82,17 @@ namespace BackendSocialProject.Migrations
             modelBuilder.Entity("BackendSocialProject.Models.Data.Plant", b =>
                 {
                     b.HasOne("BackendSocialProject.Models.Data.Category", "category")
-                        .WithMany()
+                        .WithMany("Plants")
                         .HasForeignKey("CategoryID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("category");
+                });
+
+            modelBuilder.Entity("BackendSocialProject.Models.Data.Category", b =>
+                {
+                    b.Navigation("Plants");
                 });
 #pragma warning restore 612, 618
         }
