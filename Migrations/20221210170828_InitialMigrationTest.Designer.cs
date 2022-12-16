@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackendSocialProject.Migrations
 {
     [DbContext(typeof(DemoContext))]
-    [Migration("20221208211341_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20221210170828_InitialMigrationTest")]
+    partial class InitialMigrationTest
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace BackendSocialProject.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CategoryID")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -76,20 +76,20 @@ namespace BackendSocialProject.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryID");
+                    b.HasIndex("CategoryId");
 
                     b.ToTable("Plants");
                 });
 
             modelBuilder.Entity("BackendSocialProject.Models.Data.Plant", b =>
                 {
-                    b.HasOne("BackendSocialProject.Models.Data.Category", "category")
+                    b.HasOne("BackendSocialProject.Models.Data.Category", "Category")
                         .WithMany("Plants")
-                        .HasForeignKey("CategoryID")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("category");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("BackendSocialProject.Models.Data.Category", b =>

@@ -130,3 +130,6 @@ D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\obj\Debug\net6.0\re
 D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\obj\Debug\net6.0\BackendSocialProject.pdb
 D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\obj\Debug\net6.0\BackendSocialProject.genruntimeconfig.cache
 D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\obj\Debug\net6.0\ref\BackendSocialProject.dll
+D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+D:\NiceCXOne\My Proyecto Social-Backend\BackendSocialProject\bin\Debug\net6.0\Newtonsoft.Json.dll

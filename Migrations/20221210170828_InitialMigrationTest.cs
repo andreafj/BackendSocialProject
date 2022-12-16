@@ -4,7 +4,7 @@
 
 namespace BackendSocialProject.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class InitialMigrationTest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -33,23 +33,23 @@ namespace BackendSocialProject.Migrations
                     ScientificName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     commonName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CategoryID = table.Column<int>(type: "int", nullable: false)
+                    CategoryId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Plants", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Plants_Categories_CategoryID",
-                        column: x => x.CategoryID,
+                        name: "FK_Plants_Categories_CategoryId",
+                        column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Plants_CategoryID",
+                name: "IX_Plants_CategoryId",
                 table: "Plants",
-                column: "CategoryID");
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

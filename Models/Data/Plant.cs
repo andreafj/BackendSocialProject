@@ -9,13 +9,18 @@ namespace BackendSocialProject.Models.Data
         //Control +. para importar 
         public int Id { get; set; }
         //shortcut 'prop' para propiedades
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Genus { get; set; }
+        [Required]
         public string ScientificName { get; set; }
-        public string commonName { get; set; }
+        [Required]
+        public string commonName { get; set; }  
+        [Required]
         public string Description { get; set; }
         //Foreing key
-        public int CategoryID { get; set; }
-        public Category? category { get; set; }
+        public int CategoryId { get; set; }
+        public Category? Category { get; set; }
     }
 }
